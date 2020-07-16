@@ -10,34 +10,35 @@
   </div>
 
 <script>
-  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; //for chrome and firefox
 
-  const recognition = new SpeechRecognition();
+  const recognition = new SpeechRecognition();  //new instance
   recognition.interimResults = true;
   recognition.lang = 'en-US';
+  // recognition.lang = 'es-MX';
   
-  let p = document.createElement('p');
+  let p = document.createElement('p');      //create a paragraph
   const words = document.querySelector('.words');
   words.appendChild(p);
 
   recognition.addEventListener('result', e => {
-    const transcript = Array.from(e.results)
+    const transcript = Array.from(e.results)    //create an array with the results of speech recognition
       .map(result => result[0])
       .map(result => result.transcript)
       .join('');
 
-      const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+      const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');    //replace string into icons
       p.textContent = poopScript;
 
       if (e.results[0].isFinal) {
-        p = document.createElement('p');
+        p = document.createElement('p');      //create another paragraph after pausing speech recognition
         words.appendChild(p);
       }
   });
 
-  recognition.addEventListener('end', recognition.start);
+  recognition.addEventListener('end', recognition.start);   //start speech recognition after a pause
 
-  recognition.start();
+  recognition.start();  //start speech recognition
 
 </script>
 

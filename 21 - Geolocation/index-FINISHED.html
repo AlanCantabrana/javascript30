@@ -62,10 +62,10 @@
     const arrow = document.querySelector('.arrow');
     const speed = document.querySelector('.speed-value');
 
-    navigator.geolocation.watchPosition((data) => {
+    navigator.geolocation.watchPosition((data) => {    //the current position is changing everytime
       console.log(data);
-      speed.textContent = data.coords.speed;
-      arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+      speed.textContent = data.coords.speed;    //asign value to html tag
+      arrow.style.transform = `rotate(${data.coords.heading}deg)`;    //asign value to html tag
     }, (err) => {
       console.error(err);
     });

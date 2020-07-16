@@ -30,12 +30,13 @@
     const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
 
     // Array.prototype.filter()
+    //filter iterates each item in the array using fuctions
     // 1. Filter the list of inventors for those who were born in the 1500's
     const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
-
     console.table(fifteen);
 
     // Array.prototype.map()
+    //Return a new array as the same lenght
     // 2. Give us an array of the inventor first and last names
     const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
     console.log(fullNames);
@@ -80,10 +81,10 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-    const alpha = people.sort((lastOne, nextOne) => {
+    const alpha = people.sort((lastOne, nextOne) => {    
       const [aLast, aFirst] = lastOne.split(', ');
       const [bLast, bFirst] = nextOne.split(', ');
-      return aLast > bLast ? 1 : -1;
+      return aLast > bLast ? 1 : -1;      //compares two item of the array
     });
     console.log(alpha);
 
@@ -92,14 +93,22 @@
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
 
     const transportation = data.reduce(function(obj, item) {
-      if (!obj[item]) {
-        obj[item] = 0;
+      if (!obj[item]) {       
+        obj[item] = 0;      //initializes key item with cero
       }
       obj[item]++;
       return obj;
     }, {});
 
     console.log(transportation);
+
+    //result 
+      /*{bike: 2,
+        car: 5
+        pogostick: 1
+        truck: 3
+        van: 2
+        walk: 2} */
 
   </script>
 </body>

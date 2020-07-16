@@ -183,15 +183,15 @@
   </ul>
 <script>
 
-  const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+  const timeNodes = Array.from(document.querySelectorAll('[data-time]')); //get array with minutes
 
   const seconds = timeNodes
-    .map(node => node.dataset.time)
-    .map(timeCode => {
-      const [mins, secs] = timeCode.split(':').map(parseFloat);
-      return (mins * 60) + secs;
+    .map(node => node.dataset.time)  //get data time from array
+    .map(timeCode => {    
+      const [mins, secs] = timeCode.split(':').map(parseFloat);   //divide array into two variables and change data to float number
+      return (mins * 60) + secs; 
     })
-    .reduce((total, vidSeconds) => total + vidSeconds);
+    .reduce((total, vidSeconds) => total + vidSeconds);  //calculate total seconds from all videos
 
     let secondsLeft = seconds;
     const hours = Math.floor(secondsLeft / 3600);

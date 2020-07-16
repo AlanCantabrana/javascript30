@@ -53,13 +53,13 @@
 
   divs.forEach(div => div.addEventListener('click', logText, {
     capture: false,
-    once: true
+    once: true      //execute click once
   }));
 
   button.addEventListener('click', () => {
     console.log('Click!!!');
   }, {
-    once: true
+    once: true  //execute click once
   });
 
 </script>

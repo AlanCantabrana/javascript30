@@ -60,15 +60,15 @@
 <script>
   function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
+    e.target.classList.remove('playing'); //Determine how CSS changes
   }
 
   function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //link keyboard with sound
     const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
     if (!audio) return;
 
-    key.classList.add('playing');
+    key.classList.add('playing');  // add class playing when the keyboard is typed
     audio.currentTime = 0;
     audio.play();
   }

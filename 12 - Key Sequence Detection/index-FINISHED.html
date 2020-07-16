@@ -10,10 +10,11 @@
 const pressed = [];
 const secretCode = 'wesbos';
 
+//function to detect secretCode
 window.addEventListener('keyup', (e) => {
   console.log(e.key);
   pressed.push(e.key);
-  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);  //takes the last 6 characters
   if (pressed.join('').includes(secretCode)) {
     console.log('DING DING!');
     cornify_add();

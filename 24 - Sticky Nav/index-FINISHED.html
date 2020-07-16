@@ -46,10 +46,10 @@
   <script>
     // Not a ton of code, but hard to
     const nav = document.querySelector('#main');
-    let topOfNav = nav.offsetTop;
+    let topOfNav = nav.offsetTop;       //gives position
 
     function fixNav() {
-      if (window.scrollY >= topOfNav) {
+      if (window.scrollY >= topOfNav) {     //When scroll is bigger than topPosition, it creates fixed-nav class 
         document.body.style.paddingTop = nav.offsetHeight + 'px';
         document.body.classList.add('fixed-nav');
       } else {

@@ -78,7 +78,7 @@ li.logo {
   max-width: 0;
   overflow: hidden;
   background: white;
-  transition: all 0.5s;
+  transition: all 0.5s;     /* creates transition */
   font-weight: 600;
   font-size: 30px;
 }
@@ -86,8 +86,8 @@ li.logo {
 li.logo a {
   color: black;
 }
-
-.fixed-nav li.logo {
+/* creates transition and width of the logo */
+.fixed-nav li.logo {      
   max-width: 500px;
 }
 

@@ -28,9 +28,9 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = JSON.parse(localStorage.getItem('items')) || [];
+  const items = JSON.parse(localStorage.getItem('items')) || [];    //load data from localStorage
 
-  function addItem(e) {
+  function addItem(e) {       //add items to localStorage
     e.preventDefault();
     const text = (this.querySelector('[name=item]')).value;
     const item = {
@@ -39,11 +39,11 @@
     };
 
     items.push(item);
-    populateList(items, itemsList);
-    localStorage.setItem('items', JSON.stringify(items));
-    this.reset();
+    populateList(items, itemsList);   //refresh list
+    localStorage.setItem('items', JSON.stringify(items));   //save data in localStorage
+    this.reset(); //reset the form
   }
-
+  //every time you add an item, you run popolateList function, two arguments; 1) new list, 2) existing list
   function populateList(plates = [], platesList) {
     platesList.innerHTML = plates.map((plate, i) => {
       return `
@@ -52,18 +52,18 @@
           <label for="item${i}">${plate.text}</label>
         </li>
       `;
-    }).join('');
+    }).join('');      //create a single string
   }
 
   function toggleDone(e) {
     if (!e.target.matches('input')) return; // skip this unless it's an input
     const el = e.target;
     const index = el.dataset.index;
-    items[index].done = !items[index].done;
-    localStorage.setItem('items', JSON.stringify(items));
-    populateList(items, itemsList);
+    items[index].done = !items[index].done;     //change the checkbox to the opposite
+    localStorage.setItem('items', JSON.stringify(items));   //upload data to localStore
+    populateList(items, itemsList);  //refresh list
   }
-
+  //event listeners
   addItems.addEventListener('submit', addItem);
   itemsList.addEventListener('click', toggleDone);
 
